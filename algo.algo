@@ -5,7 +5,7 @@ START
     SET word_count ← 0                   
     SET vowel_count ← 0                 
     SET previous_space ← TRUE
-  
+
     PRINT "Enter a sentence ending with a period (e.g., 'This is an example.'):"
 
     // Read the first character
