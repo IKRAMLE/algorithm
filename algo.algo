@@ -1,0 +1,43 @@
+START
+
+    SET character ← ''                   
+    SET character_count ← 0              
+    SET word_count ← 0                   
+    SET vowel_count ← 0                 
+    SET previous_space ← TRUE
+  
+    PRINT "Enter a sentence ending with a period (e.g., 'This is an example.'):"
+
+    // Read the first character
+    GET character
+
+    // Continue processing characters until the period is encountered
+    WHILE character != '.'
+        INCREMENT character_count  
+
+        // Check if the character is a vowel
+        IF character IN ['a', 'e', 'i', 'o', 'u'] THEN
+            INCREMENT vowel_count
+        ENDIF
+
+        // Check if the character is a space
+        IF character = ' ' THEN
+            SET previous_space ← TRUE  
+        ELSE
+            // If the previous character was a space, start a new word
+            IF previous_space = TRUE THEN
+                INCREMENT word_count
+                SET previous_space ← FALSE  
+            ENDIF
+        ENDIF
+
+        // Read the next character
+        GET character
+    ENDWHILE
+
+    // Display the results
+    PRINT "Total number of characters: ", character_count
+    PRINT "Total number of words: ", word_count
+    PRINT "Total number of vowels: ", vowel_count
+
+END
